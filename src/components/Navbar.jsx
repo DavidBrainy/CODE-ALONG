@@ -10,7 +10,6 @@ function Navbar (){
                 <NavItem menu="Home"/>
                 <NavItem menu="Product"/>
                 <NavItem menu="Services"/>
-                <NavItem menu="Services"/>
                 <NavItem menu="About"/>
                 <NavItem menu="Contact"/>
             </ul>
