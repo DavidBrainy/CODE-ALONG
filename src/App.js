@@ -5,8 +5,9 @@
 // import Practice from "./components/Practice"
 // import TaskManager from "./components/TaskManager";
 // import Form from "./components/Form";
-import Product from "./components/Product";
+// import Product from "./components/Product";
 import ProductList from "./components/ProductList";
+// import Spinner from "./components/Spinner";
 
 function App(){
   return (
@@ -23,6 +24,7 @@ function App(){
        {/* <Form />  */}
        {/* <Product />  */}
        <ProductList /> 
+       {/* <Spinner />  */}
     </div>
   );
 }
