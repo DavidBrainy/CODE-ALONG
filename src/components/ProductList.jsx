@@ -5,8 +5,10 @@ import Spinner from './Spinner';
 import useAxios from '../hooks/useAxios';
 
 function ProductList(){
-    const [products, setProducts] = useState([]);
-    const {data, isLoading, error} = useAxios ("https://api.escuelajs.co/api/v1/products");
+    // const [products, setProducts] = useState([]);
+    const {data, isLoading, error} = useAxios (
+        "https://api.escuelajs.co/api/v1/products"
+        );
     
         // useEffect(()=> {
         //   const getProducts = async () => {
