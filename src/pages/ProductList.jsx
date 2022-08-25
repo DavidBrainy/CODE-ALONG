@@ -3,31 +3,34 @@ import axios  from "axios";
 import Product  from "../components/Product";
 import Spinner from '../components/Spinner';
 import useAxios from '../hooks/useAxios';
+import { useProductContext } from '../context/productContext';
 
 function ProductList(){
-    // const [products, setProducts] = useState([]);
-    const {data, isLoading, error} = useAxios (
-        "https://api.escuelajs.co/api/v1/products"
-        );
     
-        // useEffect(()=> {
-        //   const getProducts = async () => {
-        //     const results = await axios.get (
-        //       "https://api.escuelajs.co/api/v1/products"
-        //     );
-        //     setProducts(results.data)
-        //   };
+    // const {data, isLoading, error} = useAxios 
+    // (
+    //     "https://api.escuelajs.co/api/v1/products"
+    //     );
 
-        //   getProducts();
-        // }, []);
+    const {data, isLoading, error} = useAxios (
+        "https://fakestoreapi.com/products"
+        );
 
-        // console.log(data);
+       const {products, setProducts} = useProductContext();
+      
+        useEffect(() => {
+             setProducts(data);
+        }, [data]);
 
-        if (isLoading) return <Spinner/>
-        if (error) return <p>{error}</p>
 
-        return (<div className="flex flex-wrap gap-10 justify-center pt-10">
-            {data.map((data) => (
+        if (isLoading) return <Spinner/>;
+        if (error) return <p>{error}</p>;
+
+
+        return (
+        
+        <div className="flex flex-wrap gap-10 justify-center pt-10">
+            {products?.map((data) => (
             <Product product={data}/>
             ))}
         </div>
