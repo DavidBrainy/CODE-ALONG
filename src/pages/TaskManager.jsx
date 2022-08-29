@@ -1,5 +1,6 @@
 // import { list } from 'postcss';
 import React, {useState, useEffect} from 'react';
+import {useTaskContext} from '../context/taskContext';
 
 import {v4 as uuid } from "uuid";
 
@@ -7,11 +8,7 @@ import TaskItem from "../components/TaskItem";
 
 
 function TaskManager(){
-   const [tasks, setTasks] = useState(()=>{
-      const savedTasks = localStorage.getItem("tasks");
-      if (!savedTasks) return[]; 
-      return JSON.parse(savedTasks);
-   });
+   const {tasks, setValue} = useTaskContext();
    
    const [input, setInput] = useState("");
 
@@ -25,7 +22,7 @@ function TaskManager(){
        completed: false,
           };
     
-    setTasks([newTask, ...tasks])
+    setValue([newTask, ...tasks])
     setInput("");
 
    }; 
